@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  redis:
+    image: redis
+    container_name: redis
+      - REDIS_HOST=redis
+    ports:
+      - 6379:6379

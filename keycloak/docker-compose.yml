@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  keycloak:
+    image: jboss/keycloak:latest
+    container_name: keycloak
+    ports:
+      - 7001:8080
+    depends_on:
+      - mssql
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin      - DB_ADDR=mssql
+      - DB_VENDOR=mssql
+      - DB_DATABASE=keycloak
+      - DB_USER=${MSSQL_DB_USER}
+      - DB_PASSWORD=${MSSQL_DB_PASSWORD}
+      - DB_PORT=${MSSQL_DB_PORT}
